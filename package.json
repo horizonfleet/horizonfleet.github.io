@@ -10,7 +10,8 @@
   },
   "scripts": {
     "dev": "vuepress dev public",
-    "deploy": "./deploy.sh"
+    "deploy": "./deploy.sh",
+    "build": "vuepress build public"
   },
   "dependencies": {
     "@vuepress/theme-default": "^1.5.2"
