@@ -9,8 +9,8 @@
     "@vuepress/theme-blog": "^2.1.0"
   },
   "scripts": {
-    "dev": "vuepress dev blog",
-    "build": "vuepress build blog"
+    "dev": "vuepress dev public",
+    "deploy": "./deploy.sh"
   },
   "dependencies": {
     "@vuepress/theme-default": "^1.5.2"
