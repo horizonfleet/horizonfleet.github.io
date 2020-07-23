@@ -4,7 +4,7 @@
 set -e
 
 # build
-vuepress build public
+vuepress build blog
 
 # navigate into the build output directory
 cd blog/.vuepress/dist
