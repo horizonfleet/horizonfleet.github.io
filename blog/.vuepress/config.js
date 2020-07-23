@@ -1,6 +1,10 @@
 module.exports = {
+  publicPath: 'horizonfleet',
   description: '',
   base: '/',
+  "scripts": {
+    "blog:build": "vuepress build blog"
+  },
   themeConfig: {
     logo: '/logo_text.png',
     search: false,
