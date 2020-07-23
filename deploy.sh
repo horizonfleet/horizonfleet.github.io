@@ -4,10 +4,10 @@
 set -e
 
 # build
-vuepress build blog
+vuepress build public
 
 # navigate into the build output directory
-cd blog/.vuepress/dist
+cd public/.vuepress/dist
 
 # if you are deploying to a custom domain
 # echo 'www.example.com' > CNAME
