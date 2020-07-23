@@ -4,7 +4,7 @@
 set -e
 
 # build
-vuepress build public
+npm run public:build
 
 # navigate into the build output directory
 cd public/.vuepress/dist
