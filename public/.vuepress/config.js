@@ -8,12 +8,29 @@ module.exports = {
       { text: 'Horizon',
         link: '/horizon/',
       },
-      {text: 'Instructions',
-        link: '/instructions/',
+      {
+        text: '(Documentation)',
+        link: '/documentation/',
       },
       {
-        text: 'Documentation',
-        link: '/documentation/',
+        text: 'Design Thinking',
+        link: '/process/',
+      },
+      {
+        text: 'Data Source',
+        link: '/datasource/',
+      },
+      {
+        text: 'Backend',
+        link: '/backend/',
+      },
+      {
+        text: 'Frontend',
+        link: '/frontend/',
+      },
+      {
+        text: 'How to deploy',
+        link: '/instructions/',
       },
       {
         text: 'About',
