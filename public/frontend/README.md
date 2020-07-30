@@ -144,7 +144,7 @@ The frontend is connected to the backend via a **REST API**. The application use
 
 ![Horizon: Data Format](/frontend12.png?raw=true)
 
-> **NOTE**: For more information about the data and its calculations, visit the _Backend_ section.
+> **NOTE**: For more information about the data and its calculations, visit the [_Backend_](/backend) and [_Data Source_](/datasource) section.
 
 # Challenges
 

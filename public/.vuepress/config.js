@@ -11,12 +11,12 @@ module.exports = {
         link: '/horizon/',
       },
       {
-        text: '(Documentation)',
-        link: '/documentation/',
-      },
-      {
         text: 'Design Thinking',
         link: '/process/',
+      },
+      {
+        text: 'Architecture',
+        link: '/architecture/',
       },
       {
         text: 'Data Source',
@@ -33,6 +33,10 @@ module.exports = {
       {
         text: 'How to deploy',
         link: '/instructions/',
+      },
+      {
+        text: 'Outlook and Review',
+        link: '/outlook/',
       },
       {
         text: 'About',

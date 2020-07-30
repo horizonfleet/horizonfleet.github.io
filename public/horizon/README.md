@@ -12,14 +12,15 @@ This documentation was written with two target groups in mind: Our Professors an
 
 It is therefore split into more technical pages:
 
+ - #### [Architecture](/architecture)
  - #### [Data Source](/datasource)
  - #### [Backend](/backend)
  - #### [Frontend](/frontend)
+ - #### [How to deploy](/instructions)
 
 ... and pages documenting our development work on Horizon:
 
- - #### [Documentation](/documentation)
- - #### [Design Thinking and Outlook](/process)
+ - #### [Our Process + Design Thinking](/process)
  - #### [Outlook](/outlook)
 
 ### Please have a look at the official [Horizon GitHub Repository](https://github.com/horizonfleet/Horizon) as well!

@@ -11,10 +11,11 @@ The following documentation is structured after the CRISP-DM process.
 
 
 ![CRISP](/CRISP_DM.png?raw=true)
+[Source of the original image](https://en.wikipedia.org/wiki/Cross-industry_standard_process_for_data_mining#/media/File:CRISP-DM_Process_Diagram.png)
 
 
-
-*[Source of the original image](https://en.wikipedia.org/wiki/Cross-industry_standard_process_for_data_mining#/media/File:CRISP-DM_Process_Diagram.png)
+> **NOTE**: For the first step in the CRISP-DM, visit the [_Design Thinking and Process_](/backend) page
+> and for the second step the [_Data Source_](/datasource) section.
 
 
 ## 3. Data Preparation - Speed Layer
@@ -111,7 +112,7 @@ A subset of all features (mostly aggregates such as averages or last values and 
         .start()
   A sample of one message to the frontend:
 
-    {"trip_id":"VA1Z9OT98P","truck_id":"5f070922c92647260c2b2886","number_plate":"S HZ 8245","route_id":"5f070922c92647260c2b287e","truck_mass":14070,"departure":"Muenchen","arrival":"Stuttgart","departure_time":1595456465                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ,"telemetry_timestamp":1595456465                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ,"arrival_time":1595466901,"telemetry_lat":48.16400894659716,"telemetry_lon":11.483320377669836,"truck_speed":13.08,"truck_consumption":6.66,"avg_truck_speed":13.08,"truck_acceleration":-6.07,"avg_truck_acceleration":-6.07,"normal_consumption":6.66,"route_progress":0,"driver_class":1,"delay":-1773,"driver_acceleration":2,"driver_speed":2,"driver_brake":0,"incident":false,"truck_condition":1,"tires_efficiency":0,"engine_efficiency":0,"weather":0,"year":2008,"arrived":0,"truck_type":"LOCAL","driver_duration":0,"road_type":"INTERURBAN","next_service":212,"service_interval":9000}
+    {"trip_id":"VA1Z9OT98P","truck_id":"5f070922c92647260c2b2886","number_plate":"S HZ 8245","route_id":"5f070922c92647260c2b287e","truck_mass":14070,"departure":"Muenchen","arrival":"Stuttgart","departure_time":1595456465,"telemetry_timestamp":1595456465,"arrival_time":1595466901,"telemetry_lat":48.16400894659716,"telemetry_lon":11.483320377669836,"truck_speed":13.08,"truck_consumption":6.66,"avg_truck_speed":13.08,"truck_acceleration":-6.07,"avg_truck_acceleration":-6.07,"normal_consumption":6.66,"route_progress":0,"driver_class":1,"delay":-1773,"driver_acceleration":2,"driver_speed":2,"driver_brake":0,"incident":false,"truck_condition":1,"tires_efficiency":0,"engine_efficiency":0,"weather":0,"year":2008,"arrived":0,"truck_type":"LOCAL","driver_duration":0,"road_type":"INTERURBAN","next_service":212,"service_interval":9000}
 
 Secondly, all master data along with all time series is saved to the batch layer, by inserting it into the persistence-layer (Cosmos-DB) in a historized fashion. We decided to insert the already preprocessed and enriched data into the batch-db (and not directly from the simulation) to ensure consistency in terms of enrichment steps. Therefore, the foreachBatch()-Method was used, in order to insert data via the pymongo library.
 
@@ -138,25 +139,10 @@ A major hurdle was inserting the label for time series into the database. The de
 ____________________________________________________		    
 As the data stems from a simulation, data cleaning did not have to be performed.
 However, a large problem that was faced during development was the constantly changing nature of the data,
-as the development of the simulation was simultaneous to 
-It would have been better to have a fixed data source from the start. This would have enabled more structured work.
-As the selected task of the group 
-Data Set Description
-Select Data (Rationale for Inclusion / Exclusion)
-- Auswahl der wichtigen Variablen 
-Clean Data (Data Cleaning Report)
-- Ausreisser erkennen, fehlende Werte behandeln
-Construct Data (Derived Attributes Generated Reports)
-- Abgeleitete Variablen (Summe oder logische Verknüpfungen)
-Integrate Data (Merge Data)
-- Daten aus verschiedenen Tabellen zusammenfüren
-Format Data (Reformatted Data)
-- Formatierung (Datenformat (Datum...), Transformation der Daten (normierte Verteilung oder PCA))
-____________________________________________________
+as the development of the simulation was simultaneous to the development of the backend.
+It would have been better to have a fixed data source from the start. This would have enabled structured work, more consistent with CRISP-DM.
 
 ## 4. Modeling - Batch Layer
-
-Responsible: David Rundel
 
 In the modeling phase, we ended up with two models. One supervised, and one unsupervised approach.
 
@@ -172,7 +158,7 @@ Gradient Boosted Trees (GMT) were utilized to regress on the delay per trip and 
     EA_gbt = GBTRegressor(labelCol="label", featuresCol="features")
 
 The GBT-Algorithm was challenged against LSTM-Networks, which held the potential to make better use of Time Series Data. However, while the data is available in time series format, the prediction is a regression task and heavily profits from the ability of GBT to learn different patterns in data. Unfortunately the LSTM, implemented with Keras and Tensoflow as Backend, was not able to achieve better results than the sequentially growing decision trees.
-In the next iteration of the data science process, it could be tried to predict the delay using a multi model or multi input model approach with LSTM's and dense networks, concatenating several input streams with different dimensionality. This would not only process time-series, but also one-dimensional master data, which turned out to be a good predictor with the GBT. Anyway, the LSTM code can be found in /Backend/Kafka/mvp/batch_layer/NN_Test.py.
+In the next iteration of the data science process, it could be tried to predict the delay using a multi model or multi input model approach with LSTM's and dense networks, concatenating several input streams with different dimensionality. This would not only process time-series, but also one-dimensional master data, which turned out to be a good predictor with the GBT. Anyway, the LSTM code can be found in /Backend/batchlayer/NN_Test.py.
 
 For both models, hyperparameters were optimized with the help of a Grid Search. The grid could be extended by further variables if better results are required, it is however more likely that training data amounts and data preparation play a bigger role in the quality of the models.
 
@@ -182,17 +168,7 @@ For both models, hyperparameters were optimized with the help of a Grid Search. 
             .addGrid(EA_gbt.stepSize, [0.001, 0.01, 0.1, 1]) \
             .build()
 
-____________________________
-Generate Test Design (Test Design)
-- Wie wird Modelgüte gemessen?
-- Aufteilung der Daten in Trainings-, Test- und Validierungsmenge
-Assess Model (Model Assessment, Revised Parameter Settings)
-- Technische Bewertung der Modellgüte ggf. mit anderen Parametern wiederholen
-_____________________________
-
 ## 5. Evaluation
-
-Responsible: David Rundel
 
 ### Evaluation of Machine Learning Models
 Each parameter combination in our grid is evaluated using  10-Fold-Cross-Validation, due to the fact that is an sufficiently big and decorrelated estimate of our error-metric.
@@ -210,37 +186,21 @@ Each parameter combination in our grid is evaluated using  10-Fold-Cross-Validat
     EA_crossval = EA_crossval.fit(sql_df_trips) 
     EA_best_model = EA_crossval.bestModel
 
-Lastly, we found an Heteroscedasticity in our prediction-error, meaning that the variance of our error-estimate was not constant. We were not able to eliminate this issue yet.
+Lastly, we found heteroscedasticity in our prediction-error, meaning that the variance of our error-estimate was not constant. We were not able to eliminate this issue yet.
 
     jointplot= sns.jointplot(x="label", \ 
 			    y="pred", \
 			    data=sql_df_trips)
 			 
-### Evaluation of the Horizon Fleet Management System   
-
-Responsible: ALL
-
-Evaluate Results (Assessment of Data Mining Results, Buisness Success, Criteria, Approved Models)
-
-- Bewertung aller Resultate in Bezug auf betriebswirtschaftliche Ziele
-
-Review Process (Review of Process)
-
-- Begutachtung aller Schritte. Wurden auch nur Daten verwendet, die in Zukunft verfügbar sind? Was wurde übersehen?
-
-Determine Next Steps (List of possible actions decision)
 
 ## 6. Deployment
 
-Responsible:  David Rundel, Felix Bieswanger, Jan Anders and Sebastian Hermann
+> **NOTE**: For a detailed description of how to deploy Horizon yourself, please see the tab [How to deploy](/instructions).
 
-#### For a detailed description of how to deploy Horizon yourself, please see the tab [Instructions](/instructions).
-Deployment Plan
-
-Before beginning work on Horizon, Microsoft Azure was chosen as the plattform on which it would later be deployed.
+Before beginning work on Horizon, Microsoft Azure was chosen as the platform on which it would later be deployed.
 This is for two reasons: 
 Firstly, Azure is currently shaping to be the main competitor to the industry leading Amazon Web Services and offers a free student credit program, making it well suited for a study project.
-Secondly, while some team-members had previous experience with Googles' Cloud Plattform, another option with a student credit offering, we wanted to gain experience with another solution.
+Secondly, while some team-members had previous experience with Googles Cloud Platform, another option with a student credit offering, we wanted to gain experience with another solution.
 
 We did not expect that hosting our solution would require as many resources, but in the end the student credit of multiple accounts was fully used up.
 
@@ -251,10 +211,6 @@ After testing parts of the solution in clusters or containers on local machines,
 As Horizon was developed as a prototype and underwent constant changes, in addition to the high cost of hosting the service, Horizon did not run online for extendend periods of time. This means that no large database of data for training could be collected.
 Monitoring was therefore not required (and would have cost additional credit). The Batch Database did not reach full capacity and remained below the free tier of 400 RU/s for the duration of the project.  
 
-Final Presentation
-During the live presentation of the system, Horizon was deployed and the frontend was publicly available.
-Given that enough funds remain, the Horizon dashboard will be available [here](janders.net/horizon) as a static application in the first week of August, 2020 for trying out features (such as filter criteria), which could not be shown during the presentation.
-
 
 ## Contributors
-**David Rundel** and **Felix Bieswanger** were mainly involved in the development of the backend and streaming. 
+**David Rundel** and **Felix Bieswanger** were mainly involved in the development of the backend and streaming. **Jan Anders** helped with deployment.
