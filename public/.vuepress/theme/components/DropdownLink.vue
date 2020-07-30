@@ -152,14 +152,14 @@ export default {
         margin-bottom 0
         padding 0 1.5rem 0 1.25rem
         &:hover
-          color $accentColor
+          color #2A5E8C
         &.router-link-active
-          color $accentColor
+          color #38ABF2
           &::after
             content ""
             width 0
             height 0
-            border-left 5px solid $accentColor
+            border-left 5px solid #38ABF2
             border-top 3px solid transparent
             border-bottom 3px solid transparent
             position absolute
@@ -178,7 +178,7 @@ export default {
       font-weight 600
       font-size inherit
       &:hover
-        color $accentColor
+        color #2A5E8C
     .nav-dropdown
       transition height .1s ease-out
       overflow hidden

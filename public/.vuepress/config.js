@@ -1,6 +1,8 @@
 module.exports = {
   description: '',
   base: '/',
+  title: ' ',
+  description: ' ',
   themeConfig: {
     logo: '/logo_text.png',
     search: false,
@@ -37,20 +39,6 @@ module.exports = {
         link: '/about/',
       },
     ],
-    sidebar: {
-      '/about/' : [
-       ''
-      ],
-      '/horizon/': [
-        ''
-      ],
-      '/instructions/': [
-        ''
-      ],
-      '/documentation/': [
-        ''
-      ],
-  },
     footer: {
       contact: [
         {

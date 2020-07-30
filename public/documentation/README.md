@@ -1,7 +1,7 @@
 ---
 title: Documentation
 sidebar: auto
-sidebarDepth: 2
+sidebarDepth: 4
 lang: en-US
 ---
 
@@ -14,107 +14,120 @@ Horizon was designed and developed to enable fleet management enterprises to opt
 Horizon was build on the basis of two processes:
 
  1. The Design Thinking Process
- 2. The Data Driven Decision Making Process / Cross-industry standard process for data mining
+ 2. The Data Driven Decision Making Process / Cross-industry standard process for data mining (CRISP-DM)
 
-Both processes where necessary to not only work with the data, but also ideate and develop ideas for the frontend. The Cross-industry standard process for data mining is separated in 6 steps, which will guide through this documentation. 
-The documentation is structured into Desing Thinking, Data Source, Backend and Frontend part. At the right times, reference to the corresponding stage in CRISP-DM will be given by indicating the number of the process step. 
-(At the right points the documentation is enriched with ideas and results from the design thinking process)
+Both processes where necessary to not only work with the data, but also ideate and develop ideas for the final product - the fleet dashboard. 
 
+The Design Thinking Process was mainly used in the beggining to understand the task and scope of the project. It also was later used in an iterative way to check whether the development still suits for the task and the predescribed use-case.
 
-![CRISP](/CRISP.png?raw=true)
+![Desgin Thinking Process](/design_thinking.png)
+
 
 # Design Thinking
 
 ## 1. Business Understanding
+The CRISP-DM process is shown below and mainly used for the backend development process:
+
+
+
+![CRISP](/CRISP_DM.png?raw=true)
+
+
+
+*[Source of the original image](https://en.wikipedia.org/wiki/Cross-industry_standard_process_for_data_mining#/media/File:CRISP-DM_Process_Diagram.png)
+
+
+# Research & Design Thinking Methods
 
 **Responsible: Jan Anders, Felix Bieswanger, Sebastian Hermann, David Rundel & Anja Stütz**
 
-Horizon is a student project based on concrete, predefinied tasks. The main goal is to optimize the costs of truck fleets by means of data analysis and a dashboard. 
+## Understanding the Scope
 
-### Task
+Horizon is a student project based on concrete, predefinied tasks. The main goal is to optimize the costs of truck fleets by means of data analysis and a dashboard. In order to work as realistically as possible, the task was seen as the assignment of a fictional company. Accordingly, we as a group find ourselves in the role of the consultants who develop a product for this company. 
+
+**Current situation at the fleet enterprise**
+
+The existing communication channel in the company provides for a driver to report current events to the fleet managers, who in turn respond with instructions. 
+
+![Fleet Situation](/fleet_situation?raw=true)
+
+In the past, the fleet manager had little overview of the current position and situation of the trucks. A newly introduced telemetry module (represented by a simulation in the project) in the trucks now allows the transmission of important information about the position and situation of the truck to the head office. However, up to now the control center can hardly do anything with this information and therefore needs a suitable dashboard and data modeling.
+
+
+### Task 
 
 **The following predefined Tasks were given**:
 - Dashboard design for data visualization after expansion of an existing database with two options:
 - Option 1: Batch analysis and creation of a dashboard for the user "fleet management" as well as selection and application of a DM clustering algorithm
 - Option 2: Real-time analysis and creation of a dashboard for the users "fleet management" and "drivers" (indirect) as well as selection and application for real-time visual monitoring
 
-After discussion and evaluation within the group and assessment of the skills of all group members, **option 2** is chosen for processing: 
+To fit the scope and the predefined use-case of the fleet enterprise, option two was chosen. 
 
 **"Real-time analysis and creation of a dashboard for the users "fleet management" and "drivers" (indirect) as well as selection and application for visual monitoring in real time".**
 
+### Research
 
-**The following objectives are pursued:**
-- Adjustment of the parameters for realistic simulation
-- Visualization of the data
-- Derivation of recommendations for action from visualized data
+In order to understand the scope of the project better and to bring all team members up to the same level, design thinking methods were applied first. 
 
-### Understanding the Scope and Research
+To get a first impression, Brainstorming was chosen as the first method. The results are presented below. The brainstorming was created on the topic of fleet management and trucks as well as for dashboards in this area.  
 
-In order to understand the scope of the project and to bring all team members up to the same level, design thinking methods were applied first. Brainstorming was chosen as the first method to get a first impression. The results are presented below. The brainstorming was created on the topic of fleet management and trucks as well as for dashboards in this area.  
-
-![Brainstorming Fleet Management](/Flottenmanagement.png?raw=true)
+![Brainstorming Fleet Management](/fleet_dashboard.png?raw=true)
 
 
-![Brainstorming Fleet Dashboard](/FleetDashboard.png?raw=true)
+
+![Brainstorming Fleet Dashboard](/fleet_management.png?raw=true)
 
 Based on the results of the brainstorming an extensive literature research was conducted. The results are listed and cited at the appropriate place in the description of the simulation. 
 
 In addition to the literature research, competing products were also considered and analysed.
 
-### Current state of the market
+## Evaluation of other fleet management products
 
 To understand the current state of the art other fleet management products were evaluated.
 
 | Product | Website  | Some of the Services |
 |--|--|--|
-|Carano Software Solutions  | [Access Website](https://www.carano.de/fleet-fuhrparksoftware/?gclid=Cj0KCQjw17n1BRDEARIsAFDHFewogEtD8ZFeJbRqEqwj0jlFWKkffA-nJccrchcA-L7SzfZbTUeR55EaAkHiEALw_wcB) | Data handling  and  management; Cost  management  and  controlling; Dashboards as well as Fuel data management |
-|VIMCAR Fleet | [Access Website](https://vimcar.de/flottenmanagement/kostenmanagement) |Cost  management  and  comparison; Fuel data  management; Recommendations  for  cost  efficency; Hint  for  irregulatories |
-|TRIBMLE| [Access Website](https://www.trimbletl.com/de/kraftstoff/fahrverhalten-und-coaching/) | Flexible KPI; Driver comparisons  and  analysis  of  the  driver; Consumption; Coach Assistant  for  recommendations; Onboard Driver Scorecard |
+|Carano Software Solutions  | [Access Website](https://www.carano.de/fleet-fuhrparksoftware/?gclid=Cj0KCQjw17n1BRDEARIsAFDHFewogEtD8ZFeJbRqEqwj0jlFWKkffA-nJccrchcA-L7SzfZbTUeR55EaAkHiEALw_wcB) | Data handling  and  management; Cost  management  and  controlling; Dashboards as well as fuel data management |
+|VIMCAR Fleet | [Access Website](https://vimcar.de/flottenmanagement/kostenmanagement) |Cost  management  and  comparison; Fuel data management; Recommendations  for  cost  efficency; Hint  for  irregulatories |
+|TRIBMLE| [Access Website](https://www.trimbletl.com/de/kraftstoff/fahrverhalten-und-coaching/) | Flexible KPI; Driver comparisons  and  analysis  of  the  driver; Consumption; Coach assistant  for  recommendations; Onboard driver scorecard |
+
+## Stakeholders
+
+To understand the requirements of a fleet-management dashboard better, different stakeholders were considerd.
+
+![Stakeholders](/stakeholders.png?raw=true)
 
 
-### Evaluation of KPIs
-
-Based on researches, brainstorming and market analysis the following key performance indices were derived:
-
- - Fuel consumption --> biggest cost factor
-	 -  Depending on speed, mass, air resistance, truck model, road, driver and more
- - Breaking behaviour
-	 - Unnecessary behaviour, abrasion
-	 - automatic breaking
- - Route
-	 - Influences breaking behavior: City or Incidents
-	 - Influences fuel consumption
-	 - Influence Time
-		 - Route length
-		 - Incidents
-	 - Road toll
-	 - Speed limit
- - Cargo
- - Time
-
- - Leasing costs
+| Narrow Stakeholders | Tasks | Goals & Interests |
+|--|--|--|
+| Manager | Management of the enterprise; Specifies KPI and targets | High profit; Cost reduction; Satisfied customers; Fast and efficient deliveries and processes; Hates: Unnecessary costs and dissatisfied customers |
+| Truck Driver | Drives the trucks; Monitors loading and unloading | Delivering goods successfully and safely, Hates: Incidents |
+| Fleet-Manager | Monitors truck movements and KPI; controls and coordinates; gives recommendations for action  | Getting trucks to their destination efficiently and cost-savingly|
 
 
-### Personas
 
-Asses Situation (Inventory of Resources Requirements, Assumptions and Constraints, Risks and Contingencies Terminology, Costs and Benefits)
+| Broad Stakeholders | Tasks | Goals & Interests |
+|--|--|--|
+| Controlling | Monitors finances and budget; Takes care of orders | Save money; Highest possible profits for the company |
+| Mechanic | Fleet maintenance; Maintenance and repair | Safe and functional trucks |
+| Customer | Gives orders and money | On-time and safe delivery; Damage free delivery; Cheap delivery|
+| Legislator | Specifies working conditions and requirements for trucks and companies | Respect for workers' rights; respect for rights for the benefit of the State, society and other road users|
+| Environment | Clear air, compliance with environmental zones and legal regulations  | Minimization of fine dust, particles and other pollutants|
 
-- Ressourcen: Abwägung Datenquelle & neue Simulation
-- Evaluation verschiedener Datenquellen
-- Entscheidung Projektmanagement
-- Annahmen und Einschränkungen
-- Terminologie
-- Risiken
-- Vorteile
-- Kosten
 
-Determine Data Mining Goals (Data Mining Goals and Success Criteria)
+## Personas
 
-- Spezifikation der Ziele: Wann ist das Projekt erfolgreich?
+Besides the client, the head of the company, the main users, the fleet managers, and the drivers are the direct stakeholders. Due to their importance for the project, personas have been created for the latter to identify their motives and requirements. 
 
-Produce Project Plan (Project Plan, Initial Assesment of Tools and Techniques)
+![Personas](/personas.png?raw=true)
 
-- Projektplan mit Meilensteinen 
+[Source of the Fleet-Manager image](https://caluma.jobs/buerokaufmann-buerokauffrau-buchen/)
+
+[Source of the Truck Driver image](https://www.swp.de/imgs/07/4/4/9/8/1/3/6/4/tok_d991bb979b440eb25843010381759642/w1176_h662_x750_y500_5bcd70995e288122.jpeg)
+
+## Evaluation of KPIs and cost factors of fleet management enterprises
+
+Based on researches of the average costs of fleet management enterprises in 2018 ([Source](http://www.bgl-ev.de/web/der_bgl/informationen/branchenkostenentwicklung.htm)), brainstorming and market analysis the following key performance indices were derived:
 
 # Data Source
 ## 2. Data Understanding
@@ -351,9 +364,24 @@ Assess Model (Model Assessment, Revised Parameter Settings)
 - Technische Bewertung der Modellgüte ggf. mit anderen Parametern wiederholen
 _____________________________
 
-## 5. Evaluation
 
-Responsible: Jan Anders, Felix Bieswanger, David Rundel & Anja Stütz
+# 2. Data Sources
+
+One of the main goals of the project is to implement a simulation as realistic as possible as a data basis. Ideally, either a data basis with corresponding data quantity and data quality already exists or a simulation that can be extended. 
+
+## Evaluation of different data sources
+
+**Responsible: Jan Anders, Felix Bieswanger, Sebastian Hermann, David Rundel & Anja Stütz**
+
+However, the search for data sources posed a greater problem than expected. Either too little data was available, the wrong data or the data basis was not expandable because access to the source code was missing. The following sources were evaluated and taken into consideration: 
+
+| Datasource | Explanation | Data Quantaty | Data Quality | Source Code |
+|--|--|--|--|--|
+| Adesso | Simulated telematik dataset from a master thesis  | 1/5: Dataset to small for the live use-case and the predictions| 3.5/5: Useable but neccessary to expand and add some parameter | No: Later in the project yes, but slightly too late to be considered | 
+| [Sumo](https://sumo.dlr.de) |   |  |  | 
+| [SimFleet](https://github.com/javipalanca/simfleet) |   |  |  | 
+| [fleetSim](https://github.com/fleetSim/trucksimulation) | Simulation of a fleet of trucks using vert.x and GraphHopper libraries to let trucks drive routes. Simulated telematic boxes of these trucks then regulary emit data such as GPS-Position, speed, bearing... | 3/5: A lot of missing KPI but simulation architecture is really good and expandable  | 4/5: existing data is quite good and can be adjusted     | Yes: MIT Licence and therefore useable and expandable 
+
 
 ### Evaluation of Machine Learning Models
 Each parameter combination in our grid is evaluated using  10-Fold-Cross-Validation, due to the fact that is an sufficiently big and decorrelated estimate of our error-metric.
@@ -382,19 +410,6 @@ Lastly, we found an Heteroscedasticity in our prediction-error, meaning that the
 
 Evaluate Results (Assessment of Data Mining Results, Buisness Success, Criteria, Approved Models)
 
-- Bewertung aller Resultate in Bezug auf betriebswirtschaftliche Ziele
-
-Review Process (Review of Process)
-
-- Begutachtung aller Schritte. Wurden auch nur Daten verwendet, die in Zukunft verfügbar sind? Was wurde übersehen?
-
-Determine Next Steps (List of possible actions decision)
-
-
-
-## 6. Deployment
-
-Responsible: Jan Anders, Felix Bieswanger, Sebastian Hermann, David Rundel
 
 #### For a detailed description of how to deploy Horizon yourself, please see the tab [Instructions](/instructions).
 Deployment Plan

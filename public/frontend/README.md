@@ -9,11 +9,6 @@ lang: en-US
 
 This is the official documentation of the frontend of **Horizon**. The interactive app visualizes **live recommendations** for fleet managers and truck drivers.
 
-## Contributors to the Frontend
-
-**Anja Stütz** and **Sebastian Hermann** were mainly involved in the development of the frontend.
-
-
 ## Getting Started
 
 The app was created using [**React.js**](https://reactjs.org/). React.js is a Javascript library to create user interfaces. To start the app **locally** you need [**node.js**](https://nodejs.org/en/) and [**npm**](https://www.npmjs.com/). Node.js is the platform needed for the React.js development.
@@ -32,6 +27,7 @@ To run the app on the local machine, navigate in the console to the folder _Data
 | 2    | In _React-Mockup-v2_, execute the command `npm start`                             |
 
 At this point you should be able to see the running application.
+
 ![Horizon Frontend](/frontend1.png?raw=true)
 
 ## General Principles
@@ -51,7 +47,9 @@ The current version allows two filter criteria: the restriction of the **delay r
 ### List of Currently Driving Trucks
 
 This overview lists all trucks that match the filter criteria. All information that might be of particular interest to the fleet manager at first glance is displayed. The following graphic shows the structure of an individual truck card.
+
 ![Horizon: List of currentl driving trucks](/frontend3.png?raw=true)
+
 |Nr.|Description |
 |--|--|
 | 1 | **Number plate** of the respective truck|
@@ -64,6 +62,7 @@ This overview lists all trucks that match the filter criteria. All information t
 ### Map Overview
 
 The map overview shows the **location of all trucks** that match the filter criteria on a map. The Mapbox API is used to display the interactive map. Mapbox is an open source mapping platform for custom designed maps (more information on [https://www.mapbox.com](https://www.mapbox.com)). The individual points on the map represent the locations of the different trucks. In the upper left area, **two KPI cards** are positioned, which give information about the **number of delays** and **warnings** (both conspicuous and bad).
+
 ![Horizon: Map Overview](/frontend4.png?raw=true)
 
 ### Detail View
@@ -180,16 +179,7 @@ In close coordination with the backend, a lot of data was available which had to
 
 But also the development of the **interactions**, in particular the development of the **filters**, presented a challenge. The selection of a truck, as well as the change of the data in the background had a direct effect on all related components. For example, when a truck is selected in the _list of currently driving trucks_, it must be ensured that it is both highlighted on the map and its details are displayed in the detail view. At the same time it had to be intercepted that the selection of the truck crashes when the data in the background is changed.
 
+## Contributors
 
-### Anja Stütz
-
-Information Science Student at the Stuttgart Media University.
-Mail: as314@hdm-stuttgart.de
-GitHub: https://github.com/anjastvtz
-
-### Sebastian Hermann
-
-Business Information Systems student at Stuttgart Media University.
-Mail: sh267@hdm-stuttgart.de
-GitHub: https://github.com/SebastianHermann
+**Anja Stütz** and **Sebastian Hermann** were mainly involved in the development of the frontend.
 
