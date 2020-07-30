@@ -1,5 +1,5 @@
 ---
-title: Documentation
+title: Frontend
 sidebar: auto
 sidebarDepth: 2
 lang: en-US

@@ -1,11 +1,11 @@
 ---
-title: Documentation
+title: Design Thinking
 sidebar: auto
 sidebarDepth: 4
 lang: en-US
 ---
 
-# Documentation
+# Design Thinking
 
 Welcome to the official documentation and extended readme of Horizon - a student project at the Stuttgart Media University in collaboration with Adesso.
 

@@ -1,5 +1,5 @@
 ---
-title: Documentation
+title: Design Thinking
 sidebar: auto
 sidebarDepth: 3
 lang: en-US
