@@ -51,6 +51,6 @@ Stuttgart Media University
 [Professor for Data Science, Statistics and ML](https://www.hdm-stuttgart.de/hochschule/organisation/professoren/suche_ergebnis_liste?Id=6376486)<br />
 Stuttgart Media University
 
-### [Niclas Röhrig](https://www.adesso.de/de/index.jsp)
+### [Nicolas Röhrig](https://www.adesso.de/de/index.jsp)
 [Adesso](https://www.adesso.de/de/index.jsp)
 

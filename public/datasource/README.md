@@ -25,14 +25,14 @@ Before describing the data the simulation delivers, a detailed description of th
 
 ## Extending FleetSim
 
-Before FleetSim could be extended, further research was necessary. It is important to find factors that influence the real consumption of a truck and by which core variables these factors can be described. It is also necessary to be able to map the behaviour of a real driver and the current technical condition of the truck.
+Before FleetSim could be extended, further research is necessary. It is important to find values that influence the real consumption of a truck and by which core variables can be described. It is also necessary to be able to simulate the behaviour of a real driver and the current technical condition of the truck.
 
 In the following, the results of the research and the implementation in the simulation are shown.
 
 
 ### Simulation of the truck
 
-The trucks were already implemented in the simulation but only on a very basic level. With expanding the truck variables the simulation becomes more realisitic. Beforehand it is neccessary to define which variables of a truck influence the overall consumption.
+The trucks are already implemented in the simulation but only on a very basic level. With expanding the truck variables the simulation becomes more realisitic. Beforehand it is neccessary to define which variables of a truck influence the overall consumption.
 
 The engine of a truck converts the chemical energy from the fuel into mechanical energy that makes the truck drive. The greater the efficiency and the less energy is lost through external influences, the more fuel-efficent the truck drives. 
 
@@ -43,7 +43,7 @@ Accordingly, it is important to know which parameters influence the efficiency. 
 Imagesource: Hilgers, 2016, p. 8. 
 
 Beside the energy losses in the engine, which can hardly be influenced, the losses due to mechanical energy at the crankshaft are relevant for further calculations. The greatest variable here is the rolling resistance of the vehicle - i.e. all forces that brake the vehicle and which must be overcome. These include rolling resistance, air resistance and gradient resistance. (Hilgers, 2016, p.9). This force has to be balanced to keep the speed constant or to overcome it in order to accelerate. 
-The factors mentioned, such as the alternator, fan, transmission, axle or engine brake, are largely dependent on vehicle technology:
+The factors mentioned, such as the alternator, fan, transmission, axle or engine brake, are largely dependent on vehicle technology.
 
 Besides vehicle technologie the vehicle model itself has a major impact on the consumption. Depending on weight, overall dimensions and frontal area, consumption changes significantly.
 

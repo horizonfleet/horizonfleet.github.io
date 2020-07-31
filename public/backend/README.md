@@ -14,7 +14,7 @@ The following documentation is structured after the CRISP-DM process.
 [Source of the original image](https://en.wikipedia.org/wiki/Cross-industry_standard_process_for_data_mining#/media/File:CRISP-DM_Process_Diagram.png)
 
 
-> **NOTE**: For the first step in the CRISP-DM, visit the [_Design Thinking and Process_](/backend) page
+> **NOTE**: For the first step in the CRISP-DM, visit the [_Design Thinking and Process_](/process) page
 > and for the second step the [_Data Source_](/datasource) section.
 
 

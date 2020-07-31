@@ -14,10 +14,10 @@ Horizon was build on the basis of two processes:
  1. The Design Thinking Process
  2. The Data Driven Decision Making Process / Cross-industry standard process for data mining
 
-Both processes where necessary to not only work with the data, but also ideate and develop ideas for the frontend. The Cross-industry standard process for data mining is separated in 6 steps, which will guide through this documentation. 
-The documentation is structured into Design Thinking, Data Source, Backend, Frontend and Deployment part.
-At the right times, reference to the corresponding stage in CRISP-DM will be given by indicating the number of the process step. However, this project has went through many more stages than are found in a typical data science / data mining process, mainly due to the data streaming nature of Horizon.
-The documentation is therefore enriched with ideas and results from the design thinking process as well as a description of most other steps that were part of the project.
+Both processes where necessary to not only work with the data, but also ideate and develop ideas for the frontend. The Cross-industry standard process for data mining is separated in 6 steps - the first step is included in this page, the second step can be found in the [_Data Source_](/datasource) section.
+
+However, this project has went through many more stages than are found in a typical data science / data mining process, mainly due to the data streaming nature of Horizon.
+The documentation is therefore enriched with ideas and results from the design thinking process as well as a description of other steps that were part of the project.
 
 ![Desgin Thinking Process](/design_thinking.png)
 
@@ -32,16 +32,16 @@ Following is the description of the first stage inside the CRISP-DM process mode
 
 **Responsible: Jan Anders, Felix Bieswanger, Sebastian Hermann, David Rundel & Anja Stütz**
 
-Horizon is a student project based on concrete, predefinied tasks. The main goal is to optimize the costs of truck fleets by means of data analysis and a dashboard. In order to work as realistically as possible, the task was seen as the assignment of a fictional company. Accordingly, we as a group find ourselves in the role of the consultants who develop a product for this company. 
+Horizon is a student project based on predefinied tasks. The main goal is to optimize the costs of truck fleets by data analysis and a dashboard. In order to work as realistically as possible, the task was seen as the assignment of a fictional company. Accordingly, we as a group find ourselves in the role of the consultants who develop a product for this company. 
 
 
 **Current situation at the fleet enterprise**
 
-The existing communication channel in the company provides for a driver to report current events to the fleet managers, who in turn respond with instructions. 
+The existing communication in the company provides for a driver to report current events to a fleet managers who will respond with instructions. 
 
 ![Fleet Management](/fleetsituation.png?raw=true)
 
-In the past, the fleet manager had little overview of the current position and situation of the trucks. A newly introduced telemetry module (represented by a simulation in the project) in the trucks now allows the transmission of important information about the position and situation of the truck to the head office. However, up to now the control center can hardly do anything with this information and therefore needs a suitable dashboard and data modeling.
+In the past, the fleet manager had only little overview of the current position and situation of the trucks. A newly introduced telemetry module (represented by a simulation in the project) in the trucks now allows the transmission of important information about the position and situation of the truck to the office. However, until now the control center can hardly do anything with this information and therefore needs a suitable dashboard and data modeling.
 
 
 ### Task 
@@ -167,13 +167,6 @@ The following KPIs were determined on the basis of research and the examination 
   - Bad or conspicuious driving 
 
 
-_____________________
-- Spezifikation der Ziele: Wann ist das Projekt erfolgreich?
-Produce Project Plan (Project Plan, Initial Assesment of Tools and Techniques)
-- Projektplan mit Meilensteinen 
-______________________________
-
-
 ## Explore: Ideate and Prototype
 
 The final design of the corporate identity, as well as the design of the dashboard was developed through an iterative process. 
@@ -193,7 +186,7 @@ Based on the name and color scheme a logo is designed in an iterative process. B
 ![Horizon Logo](/all_logos.png?raw=true)
 
 
-### Design Process: Dashboard Design
+### Prototype: Dashboard Design
 
 Besides the logo, the dashboard is also design through an iterative process.
 
@@ -215,7 +208,10 @@ More about the dashboard process can be found in the section "Frontend".
 
 ![Final Frontend](/frontend1.png?raw=true)
 
+## Test and Implement
+
+The last two design thinking steps - can be found in the [_Frontend_](/frontend) section.
 
 
 ## Contributors
-**Anja Stütz** and **Sebastian Hermann** were mainly involved in Design Thinking and developing a corporate identity.
+**Anja Stütz** and **Sebastian Hermann** were mainly involved in Design Thinking and developing a Corporate Identity.
