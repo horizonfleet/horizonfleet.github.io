@@ -6,8 +6,9 @@ lang: en-US
 
 ![HorizonText](/header_logo.png?raw=true)
 
-Horizon is a fleet management system, developed by students at Stuttgart Media University during Summer Semester 2020, under the supervision of Prof. Dr. Jan Kirenz and in cooperation with Adesso.
-This is the offical documentation of the project and its results, which intends to help with understanding and working with Horizon.
+Horizon is a fleet management system which was developed by students at Stuttgart Media University during Summer Semester 2020.
+The project was supervised by Prof. Dr. Jan Kirenz and conducted in cooperation with [Adesso](https://www.adesso.de/de/index.jsp).
+This is the official documentation of the project and its results, which intends to help with understanding and working with Horizon.
 This documentation was written with two target groups in mind: Our Professors and people interested in Horizon.
 
 It is therefore split into more technical pages:

@@ -19,12 +19,12 @@ The app was created using [**React.js**](https://reactjs.org/). React.js is a Ja
 
 > **NOTE**: The latest version of **node.js** includes **npm** already. Therefore, npm does not need to be installed separately.
 
-To run the app on the local machine, navigate in the console to the folder _DataScienceSS20>Frontend>React-Mockup-v2_. Here, execute the command `npm start`. A browser window should open automatically after some time (about 20 seconds) and show the application on _localhost:3000_. If not, open a browser window and enter the address _localhost:3000_.
+To run the app on the local machine, navigate to the folder _Frontend_ in the console. Here, execute the command `npm start`. A browser window should open automatically after a short time and show the application on _localhost:3000_. If not, open a browser window and enter the address _localhost:3000_.
 
 | Step | Description                                                                       |
 | ---- | --------------------------------------------------------------------------------- |
-| 1    | In the console, navigate to the folder _DataScienceSS20>Frontend>React-Mockup-v2_ |
-| 2    | In _React-Mockup-v2_, execute the command `npm start`                             |
+| 1    | In the console, navigate to the folder _Frontend_ |
+| 2    | In _Frontend_, execute the command `npm start`                             |
 
 At this point you should be able to see the running application.
 

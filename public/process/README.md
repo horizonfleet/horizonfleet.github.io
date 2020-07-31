@@ -210,7 +210,7 @@ More about the dashboard process can be found in the section "Frontend".
 
 ## Test and Implement
 
-The last two design thinking steps - can be found in the [_Frontend_](/frontend) section.
+The last two design thinking steps can be found in the [_Frontend_](/frontend) section.
 
 
 ## Contributors

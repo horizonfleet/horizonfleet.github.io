@@ -20,8 +20,8 @@ The following documentation is structured after the CRISP-DM process.
 
 ## 3. Data Preparation - Speed Layer
 
-The following paragraph will focus on the data preparation and aggreagtion as it is performed in the speed layer.
-This closly represents the Data Preparation phase of the CRISP-DM approach. However, it does not cover the process for selecting relevant variables during development of the solution. A few remarks on this step will be given after the documentation of the speed layer. 
+The following paragraph will focus on the data preparation and aggregation as it is performed in the speed layer.
+This closely represents the Data Preparation phase of the CRISP-DM approach. However, it does not cover the process for selecting relevant variables during development of the solution. A few remarks on this step will be given after the documentation of the speed layer. 
 ____________________________________________
 ### Input
 The Speed Layer processes the simulation-data which is consumed from a Kafka-Stream. 
@@ -158,9 +158,9 @@ Gradient Boosted Trees (GMT) were utilized to regress on the delay per trip and 
     EA_gbt = GBTRegressor(labelCol="label", featuresCol="features")
 
 The GBT-Algorithm was challenged against LSTM-Networks, which held the potential to make better use of Time Series Data. However, while the data is available in time series format, the prediction is a regression task and heavily profits from the ability of GBT to learn different patterns in data. Unfortunately the LSTM, implemented with Keras and Tensoflow as Backend, was not able to achieve better results than the sequentially growing decision trees.
-In the next iteration of the data science process, it could be tried to predict the delay using a multi model or multi input model approach with LSTM's and dense networks, concatenating several input streams with different dimensionality. This would not only process time-series, but also one-dimensional master data, which turned out to be a good predictor with the GBT. Anyway, the LSTM code can be found in /Backend/batchlayer/NN_Test.py.
+In the next iteration of the data science process, it could be tried to predict the delay using a multi model or multi input model approach with LSTM's and dense networks, concatenating several input streams with different dimensionality. This would not only process time-series, but also one-dimensional master data, which turned out to be a good predictor with the GBT. Anyway, the LSTM code can be found [here](https://github.com/horizonfleet/Horizon/blob/master/Backend/batch_layer/NN_Test.py).
 
-For both models, hyperparameters were optimized with the help of a Grid Search. The grid could be extended by further variables if better results are required, it is however more likely that training data amounts and data preparation play a bigger role in the quality of the models.
+For both models, the hyperparameters were optimized with the help of a Grid Search. The grid could be extended by further variables if better results are required, it is however more likely that training data amounts and data preparation play a bigger role in the quality of the models.
 
     EA_paramGrid = ParamGridBuilder() \
             .addGrid(EA_gbt.maxDepth, [3, 5, 7]) \
@@ -202,13 +202,13 @@ This is for two reasons:
 Firstly, Azure is currently shaping to be the main competitor to the industry leading Amazon Web Services and offers a free student credit program, making it well suited for a study project.
 Secondly, while some team-members had previous experience with Googles Cloud Platform, another option with a student credit offering, we wanted to gain experience with another solution.
 
-We did not expect that hosting our solution would require as many resources, but in the end the student credit of multiple accounts was fully used up.
+We did not expect that hosting our solution would require many resources, but in the end the student credit of multiple accounts was fully used up, also due to experimenting with different features.
 
 Azure Kubernetes Service and Azure Cosmos DB were chosen early in the process as the two main components on which Horizon runs. Subsequent architecture and tool decisions were made accordingly.
 
 After testing parts of the solution in clusters or containers on local machines, the live deployment only required small changes to the general workflow, the largest being heavy wait times while waiting for container images to upload for live testing.  
  
-As Horizon was developed as a prototype and underwent constant changes, in addition to the high cost of hosting the service, Horizon did not run online for extendend periods of time. This means that no large database of data for training could be collected.
+As Horizon was developed as a prototype and underwent constant changes, in addition to the high cost of hosting the service, Horizon did not run online for extended periods of time. This means that no large database of data for training could be collected.
 Monitoring was therefore not required (and would have cost additional credit). The Batch Database did not reach full capacity and remained below the free tier of 400 RU/s for the duration of the project.  
 
 

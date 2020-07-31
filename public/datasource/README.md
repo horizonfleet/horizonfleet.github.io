@@ -25,7 +25,7 @@ Before describing the data the simulation delivers, a detailed description of th
 
 ## Extending FleetSim
 
-Before FleetSim could be extended, further research is necessary. It is important to find values that influence the real consumption of a truck and by which core variables can be described. It is also necessary to be able to simulate the behaviour of a real driver and the current technical condition of the truck.
+Further research is necessary for the extension of FleetSim. It is important to find values that influence the real consumption of a truck and by which core variables can be described. It is also necessary to be able to simulate the behaviour of a real driver and the current technical condition of the truck.
 
 In the following, the results of the research and the implementation in the simulation are shown.
 
@@ -266,8 +266,8 @@ These customizations may have heavily altered aspects of fleetSim which are not 
 ### Setup
 Installation requirements for fleetSim:
  - Java > 1.8
- - maven
- - Access to a mongoDB
+ - maven >= 3.3
+ - Access to a mongoDB >= 3.2
  
 Make sure JAVA_HOME is set on the fleetSim host and mongoDB is running.
 

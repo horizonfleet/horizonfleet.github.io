@@ -58,6 +58,11 @@ The fleetsim mongo-db image requires a copy of a local mongo database "data" fol
 In addition, when first setting up the cluster it is advisable to create dummy consumers that simply consume a kafka topic and print its contents to the console in order to monitor kafka topics and evaluate if some services may not work as intended. 
 
 ## Kubernetes
+
+> **NOTE**: Refer to the files in [this folder](https://github.com/horizonfleet/Horizon/tree/master/Deployment/K8_Azure) for the yaml files for deployment in a K8 cluster or [here](https://github.com/horizonfleet/Horizon/tree/master/Deployment/K8_Minikube) for local Minicube development.
+> All following commands can be found [here](https://github.com/horizonfleet/Horizon/blob/master/Deployment/K8_Azure/kubectl.txt) or [here (with additional minikube commands)](https://github.com/horizonfleet/Horizon/blob/master/Deployment/K8_Minikube/kubectl.txt).
+
+
 A kubernetes cluster with a minimum of 6GB of RAM needs to be accessible. Lower memory will result in eviction of pods or unscheduled restarts/crashes due to memory pressure. Normally, this leads to a short downtime of the frontend or another service, in the worst case this results in the loss of data, creation of inconsistencies, or the full stop of the simulation (which has to be started manually).
 
 The cluster should be deployed in the following order using the command
@@ -132,4 +137,4 @@ The cluster can now shutdown safely.
 
 ### Contact
 
-Contact [Jan Anders](mailto:ja045@hdm-stuttgart.de) if you require help deploying Horizon yourself.
+Contact [Jan Anders](mailto:contact@janders.net) if you require help deploying Horizon yourself.
